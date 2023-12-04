@@ -134,10 +134,47 @@ function MainProduct() {
                 <div className="mainProduct__shelf__btn__secondPrice">539Р</div>
               </button>
             </div>
-
-
-
           </div>
+
+          <div className="mainProduct__Categories__container">
+            <div className='mainProduct__stocks__items'>
+              <div className="mainProduct__stocks__text">Много скидок до 50%</div>
+              <img src={img2} alt="" />
+            </div>
+            <div className='mainProduct__stocks__items'>
+              <div className="mainProduct__stocks__text">Много скидок до 50%</div>
+              <img src={img2} alt="" />
+            </div>
+            <div className='mainProduct__stocks__items'>
+              <div className="mainProduct__stocks__text">Много скидок до 50%</div>
+              <img src={img2} alt="" />
+            </div>
+            <div className='mainProduct__stocks__items'>
+              <div className="mainProduct__stocks__text">Много скидок до 50%</div>
+              <img src={img2} alt="" />
+            </div>
+            <div className='mainProduct__stocks__items'>
+              <div className="mainProduct__stocks__text">Много скидок до 50%</div>
+              <img src={img2} alt="" />
+            </div>
+            <div className='mainProduct__stocks__items'>
+              <div className="mainProduct__stocks__text">Много скидок до 50%</div>
+              <img src={img2} alt="" />
+            </div>
+            <div className='mainProduct__stocks__items'>
+              <div className="mainProduct__stocks__text">Много скидок до 50%</div>
+              <img src={img2} alt="" />
+            </div>
+            <div className='mainProduct__stocks__items'>
+              <div className="mainProduct__stocks__text">Много скидок до 50%</div>
+              <img src={img2} alt="" />
+            </div>
+            <div className='mainProduct__stocks__items'>
+              <div className="mainProduct__stocks__text">Много скидок до 50%</div>
+              <img src={img2} alt="" />
+            </div>
+          </div>
+
 
         </div>
       </div>
