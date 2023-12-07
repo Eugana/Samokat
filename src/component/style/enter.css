@@ -1,0 +1,18 @@
+.enter__conteiner {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50px;
+  padding: 12px 20px;
+  padding: 12px 20px
+}
+
+.enter__title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #404040;
+}

@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <meta charset="UTF-8">
+  <style>
+    html {
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    a:focus {
+      outline: thin dotted #333;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+    a:hover,
+    a:active {
+      outline: 0;
+    }
+    input {
+      margin: 0;
+      font-size: 100%;
+      vertical-align: middle;
+      *overflow: visible;
+      line-height: normal;
+    }
+    input::-moz-focus-inner {
+      padding: 0;
+      border: 0;
+    }
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      color: #333;
+      background-color: #fff;
+    }
+    a {
+      color: #08c;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #005580;
+      text-decoration: underline;
+    }
+    .row {
+      margin-left: -20px;
+      *zoom: 1;
+    }
+    .row:before,
+    .row:after {
+      display: table;
+      content: "";
+      line-height: 0;
+    }
+    .row:after {
+      clear: both;
+    }
+    .span3 {
+      float: left;
+      min-height: 1px;
+      margin-left: 20px;
+      width: 220px;
+    }
+    .container {
+      width: 940px;
+      margin-right: auto;
+      margin-left: auto;
+      *zoom: 1;
+    }
+    .container:before,
+    .container:after {
+      display: table;
+      content: "";
+      line-height: 0;
+    }
+    .container:after {
+      clear: both;
+    }
+    small {
+      font-size: 85%;
+    }
+    h1 {
+      margin: 10px 0;
+      font-family: inherit;
+      font-weight: bold;
+      line-height: 20px;
+      color: inherit;
+      text-rendering: optimizelegibility;
+      line-height: 40px;
+      font-size: 38.5px;
+    }
+    h1 small {
+      font-weight: normal;
+      line-height: 1;
+      color: #999;
+      font-size: 24.5px;
+    }
+
+    body {
+      margin-top: 90px;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      margin-left: -480px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding-top: 10px;
+      z-index: 10;
+    }
+    .footer {
+      color: #ddd;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .footer a {
+      color: #ccc;
+      text-decoration: underline;
+    }
+    .the-icons {
+      font-size: 14px;
+      line-height: 24px;
+    }
+    .switch {
+      position: absolute;
+      right: 0;
+      bottom: 10px;
+      color: #666;
+    }
+    .switch input {
+      margin-right: 0.3em;
+    }
+    .codesOn .i-name {
+      display: none;
+    }
+    .codesOn .i-code {
+      display: inline;
+    }
+    .i-code {
+      display: none;
+    }
+    @font-face {
+      font-family: 'yarascrift';
+      src: url('./font/yarascrift.eot?77732392');
+      src: url('./font/yarascrift.eot?77732392#iefix') format('embedded-opentype'),
+           url('./font/yarascrift.woff?77732392') format('woff'),
+           url('./font/yarascrift.ttf?77732392') format('truetype'),
+           url('./font/yarascrift.svg?77732392#yarascrift') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .demo-icon {
+      font-family: "yarascrift";
+      font-style: normal;
+      font-weight: normal;
+      speak: never;
+     
+      display: inline-block;
+      text-decoration: inherit;
+      width: 1em;
+      margin-right: .2em;
+      text-align: center;
+      /* opacity: .8; */
+     
+      /* For safety - reset parent styles, that can break glyph codes*/
+      font-variant: normal;
+      text-transform: none;
+     
+      /* fix buttons height, for twitter bootstrap */
+      line-height: 1em;
+     
+      /* Animation center compensation - margins should be symmetric */
+      /* remove if not needed */
+      margin-left: .2em;
+     
+      /* You can be more comfortable with increased icons size */
+      /* font-size: 120%; */
+     
+      /* Font smoothing. That was taken from TWBS */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+     
+      /* Uncomment for 3D effect */
+      /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+    }
+    </style>
+    <link rel="stylesheet" href="css/animation.css"><!--[if IE 7]><link rel="stylesheet" href="css/" + font.fontname + "-ie7.css"><![endif]-->
+    <script>
+      function toggleCodes(on) {
+        var obj = document.getElementById('icons');
+      
+        if (on) {
+          obj.className += ' codesOn';
+        } else {
+          obj.className = obj.className.replace(' codesOn', '');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container header">
+      <h1>yarascrift <small>font demo</small></h1>
+      <label class="switch">
+        <input type="checkbox" onclick="toggleCodes(this.checked)">show codes
+      </label>
+    </div>
+    <div class="container" id="icons">
+      <div class="row">
+        <div class="span3" title="Code: 0xe800">
+          <i class="demo-icon vbf-accept">&#xe800;</i> <span class="i-name">vbf-accept</span><span class="i-code">0xe800</span>
+        </div>
+        <div class="span3" title="Code: 0xe801">
+          <i class="demo-icon vbf-degree">&#xe801;</i> <span class="i-name">vbf-degree</span><span class="i-code">0xe801</span>
+        </div>
+        <div class="span3" title="Code: 0xe802">
+          <i class="demo-icon vbf-wine">&#xe802;</i> <span class="i-name">vbf-wine</span><span class="i-code">0xe802</span>
+        </div>
+        <div class="span3" title="Code: 0xe803">
+          <i class="demo-icon vbf-wineglass">&#xe803;</i> <span class="i-name">vbf-wineglass</span><span class="i-code">0xe803</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe804">
+          <i class="demo-icon vbf-wood-floor">&#xe804;</i> <span class="i-name">vbf-wood-floor</span><span class="i-code">0xe804</span>
+        </div>
+        <div class="span3" title="Code: 0xe805">
+          <i class="demo-icon vbf-work-table">&#xe805;</i> <span class="i-name">vbf-work-table</span><span class="i-code">0xe805</span>
+        </div>
+        <div class="span3" title="Code: 0xe806">
+          <i class="demo-icon vbf-xerox">&#xe806;</i> <span class="i-name">vbf-xerox</span><span class="i-code">0xe806</span>
+        </div>
+        <div class="span3" title="Code: 0xe807">
+          <i class="demo-icon vbf-account">&#xe807;</i> <span class="i-name">vbf-account</span><span class="i-code">0xe807</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe808">
+          <i class="demo-icon vbf-account-circle">&#xe808;</i> <span class="i-name">vbf-account-circle</span><span class="i-code">0xe808</span>
+        </div>
+        <div class="span3" title="Code: 0xe809">
+          <i class="demo-icon vbf-adapter">&#xe809;</i> <span class="i-name">vbf-adapter</span><span class="i-code">0xe809</span>
+        </div>
+        <div class="span3" title="Code: 0xe80a">
+          <i class="demo-icon vbf-adjacent-rooms">&#xe80a;</i> <span class="i-name">vbf-adjacent-rooms</span><span class="i-code">0xe80a</span>
+        </div>
+        <div class="span3" title="Code: 0xe80b">
+          <i class="demo-icon vbf-aerobics">&#xe80b;</i> <span class="i-name">vbf-aerobics</span><span class="i-code">0xe80b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe80c">
+          <i class="demo-icon vbf-age">&#xe80c;</i> <span class="i-name">vbf-age</span><span class="i-code">0xe80c</span>
+        </div>
+        <div class="span3" title="Code: 0xe80d">
+          <i class="demo-icon vbf-air-cleaner">&#xe80d;</i> <span class="i-name">vbf-air-cleaner</span><span class="i-code">0xe80d</span>
+        </div>
+        <div class="span3" title="Code: 0xe80e">
+          <i class="demo-icon vbf-alarm">&#xe80e;</i> <span class="i-name">vbf-alarm</span><span class="i-code">0xe80e</span>
+        </div>
+        <div class="span3" title="Code: 0xe80f">
+          <i class="demo-icon vbf-ans">&#xe80f;</i> <span class="i-name">vbf-ans</span><span class="i-code">0xe80f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe810">
+          <i class="demo-icon vbf-animators">&#xe810;</i> <span class="i-name">vbf-animators</span><span class="i-code">0xe810</span>
+        </div>
+        <div class="span3" title="Code: 0xe811">
+          <i class="demo-icon vbf-antibac-gel">&#xe811;</i> <span class="i-name">vbf-antibac-gel</span><span class="i-code">0xe811</span>
+        </div>
+        <div class="span3" title="Code: 0xe812">
+          <i class="demo-icon vbf-aquapark">&#xe812;</i> <span class="i-name">vbf-aquapark</span><span class="i-code">0xe812</span>
+        </div>
+        <div class="span3" title="Code: 0xe813">
+          <i class="demo-icon vbf-atm">&#xe813;</i> <span class="i-name">vbf-atm</span><span class="i-code">0xe813</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe814">
+          <i class="demo-icon vbf-bad-hear">&#xe814;</i> <span class="i-name">vbf-bad-hear</span><span class="i-code">0xe814</span>
+        </div>
+        <div class="span3" title="Code: 0xe815">
+          <i class="demo-icon vbf-badmington">&#xe815;</i> <span class="i-name">vbf-badmington</span><span class="i-code">0xe815</span>
+        </div>
+        <div class="span3" title="Code: 0xe816">
+          <i class="demo-icon vbf-basket">&#xe816;</i> <span class="i-name">vbf-basket</span><span class="i-code">0xe816</span>
+        </div>
+        <div class="span3" title="Code: 0xe817">
+          <i class="demo-icon vbf-fav">&#xe817;</i> <span class="i-name">vbf-fav</span><span class="i-code">0xe817</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe818">
+          <i class="demo-icon vbf-bbq">&#xe818;</i> <span class="i-name">vbf-bbq</span><span class="i-code">0xe818</span>
+        </div>
+        <div class="span3" title="Code: 0xe819">
+          <i class="demo-icon vbf-beach">&#xe819;</i> <span class="i-name">vbf-beach</span><span class="i-code">0xe819</span>
+        </div>
+        <div class="span3" title="Code: 0xe81a">
+          <i class="demo-icon vbf-beach-facilities">&#xe81a;</i> <span class="i-name">vbf-beach-facilities</span><span class="i-code">0xe81a</span>
+        </div>
+        <div class="span3" title="Code: 0xe81b">
+          <i class="demo-icon vbf-viber">&#xe81b;</i> <span class="i-name">vbf-viber</span><span class="i-code">0xe81b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe81c">
+          <i class="demo-icon vbf-whatsapp">&#xe81c;</i> <span class="i-name">vbf-whatsapp</span><span class="i-code">0xe81c</span>
+        </div>
+        <div class="span3" title="Code: 0xe81d">
+          <i class="demo-icon vbf-suitcase">&#xe81d;</i> <span class="i-name">vbf-suitcase</span><span class="i-code">0xe81d</span>
+        </div>
+        <div class="span3" title="Code: 0xe81e">
+          <i class="demo-icon vbf-suitcase-tag-outline">&#xe81e;</i> <span class="i-name">vbf-suitcase-tag-outline</span><span class="i-code">0xe81e</span>
+        </div>
+        <div class="span3" title="Code: 0xe81f">
+          <i class="demo-icon vbf-suitcase-outline">&#xe81f;</i> <span class="i-name">vbf-suitcase-outline</span><span class="i-code">0xe81f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe820">
+          <i class="demo-icon vbf-bed-socket">&#xe820;</i> <span class="i-name">vbf-bed-socket</span><span class="i-code">0xe820</span>
+        </div>
+        <div class="span3" title="Code: 0xe821">
+          <i class="demo-icon vbf-bell">&#xe821;</i> <span class="i-name">vbf-bell</span><span class="i-code">0xe821</span>
+        </div>
+        <div class="span3" title="Code: 0xe822">
+          <i class="demo-icon vbf-bento">&#xe822;</i> <span class="i-name">vbf-bento</span><span class="i-code">0xe822</span>
+        </div>
+        <div class="span3" title="Code: 0xe823">
+          <i class="demo-icon vbf-bicycle">&#xe823;</i> <span class="i-name">vbf-bicycle</span><span class="i-code">0xe823</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe824">
+          <i class="demo-icon vbf-bidet">&#xe824;</i> <span class="i-name">vbf-bidet</span><span class="i-code">0xe824</span>
+        </div>
+        <div class="span3" title="Code: 0xe825">
+          <i class="demo-icon vbf-billiards">&#xe825;</i> <span class="i-name">vbf-billiards</span><span class="i-code">0xe825</span>
+        </div>
+        <div class="span3" title="Code: 0xe826">
+          <i class="demo-icon vbf-bingo">&#xe826;</i> <span class="i-name">vbf-bingo</span><span class="i-code">0xe826</span>
+        </div>
+        <div class="span3" title="Code: 0xe827">
+          <i class="demo-icon vbf-bluetooth">&#xe827;</i> <span class="i-name">vbf-bluetooth</span><span class="i-code">0xe827</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe828">
+          <i class="demo-icon vbf-bluetooth-key">&#xe828;</i> <span class="i-name">vbf-bluetooth-key</span><span class="i-code">0xe828</span>
+        </div>
+        <div class="span3" title="Code: 0xe829">
+          <i class="demo-icon vbf-blu-ray">&#xe829;</i> <span class="i-name">vbf-blu-ray</span><span class="i-code">0xe829</span>
+        </div>
+        <div class="span3" title="Code: 0xe82a">
+          <i class="demo-icon vbf-bow">&#xe82a;</i> <span class="i-name">vbf-bow</span><span class="i-code">0xe82a</span>
+        </div>
+        <div class="span3" title="Code: 0xe82b">
+          <i class="demo-icon vbf-bottle">&#xe82b;</i> <span class="i-name">vbf-bottle</span><span class="i-code">0xe82b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe82c">
+          <i class="demo-icon vbf-bowling">&#xe82c;</i> <span class="i-name">vbf-bowling</span><span class="i-code">0xe82c</span>
+        </div>
+        <div class="span3" title="Code: 0xe82d">
+          <i class="demo-icon vbf-cafeteria">&#xe82d;</i> <span class="i-name">vbf-cafeteria</span><span class="i-code">0xe82d</span>
+        </div>
+        <div class="span3" title="Code: 0xe82e">
+          <i class="demo-icon vbf-home">&#xe82e;</i> <span class="i-name">vbf-home</span><span class="i-code">0xe82e</span>
+        </div>
+        <div class="span3" title="Code: 0xe82f">
+          <i class="demo-icon vbf-card">&#xe82f;</i> <span class="i-name">vbf-card</span><span class="i-code">0xe82f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe830">
+          <i class="demo-icon vbf-carpet">&#xe830;</i> <span class="i-name">vbf-carpet</span><span class="i-code">0xe830</span>
+        </div>
+        <div class="span3" title="Code: 0xe831">
+          <i class="demo-icon vbf-car-rent">&#xe831;</i> <span class="i-name">vbf-car-rent</span><span class="i-code">0xe831</span>
+        </div>
+        <div class="span3" title="Code: 0xe832">
+          <i class="demo-icon vbf-casino">&#xe832;</i> <span class="i-name">vbf-casino</span><span class="i-code">0xe832</span>
+        </div>
+        <div class="span3" title="Code: 0xe833">
+          <i class="demo-icon vbf-cctv">&#xe833;</i> <span class="i-name">vbf-cctv</span><span class="i-code">0xe833</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe834">
+          <i class="demo-icon vbf-cd">&#xe834;</i> <span class="i-name">vbf-cd</span><span class="i-code">0xe834</span>
+        </div>
+        <div class="span3" title="Code: 0xe835">
+          <i class="demo-icon vbf-chart">&#xe835;</i> <span class="i-name">vbf-chart</span><span class="i-code">0xe835</span>
+        </div>
+        <div class="span3" title="Code: 0xe836">
+          <i class="demo-icon vbf-chevron-down">&#xe836;</i> <span class="i-name">vbf-chevron-down</span><span class="i-code">0xe836</span>
+        </div>
+        <div class="span3" title="Code: 0xe837">
+          <i class="demo-icon vbf-cheese">&#xe837;</i> <span class="i-name">vbf-cheese</span><span class="i-code">0xe837</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe838">
+          <i class="demo-icon vbf-chevron-down-low">&#xe838;</i> <span class="i-name">vbf-chevron-down-low</span><span class="i-code">0xe838</span>
+        </div>
+        <div class="span3" title="Code: 0xe839">
+          <i class="demo-icon vbf-chevron-left-big">&#xe839;</i> <span class="i-name">vbf-chevron-left-big</span><span class="i-code">0xe839</span>
+        </div>
+        <div class="span3" title="Code: 0xe83a">
+          <i class="demo-icon vbf-chevron-left-low">&#xe83a;</i> <span class="i-name">vbf-chevron-left-low</span><span class="i-code">0xe83a</span>
+        </div>
+        <div class="span3" title="Code: 0xe83b">
+          <i class="demo-icon vbf-chevron-right-big">&#xe83b;</i> <span class="i-name">vbf-chevron-right-big</span><span class="i-code">0xe83b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe83c">
+          <i class="demo-icon vbf-chevron-right-low">&#xe83c;</i> <span class="i-name">vbf-chevron-right-low</span><span class="i-code">0xe83c</span>
+        </div>
+        <div class="span3" title="Code: 0xe83d">
+          <i class="demo-icon vbf-chevron-up">&#xe83d;</i> <span class="i-name">vbf-chevron-up</span><span class="i-code">0xe83d</span>
+        </div>
+        <div class="span3" title="Code: 0xe83e">
+          <i class="demo-icon vbf-chevron-up-low">&#xe83e;</i> <span class="i-name">vbf-chevron-up-low</span><span class="i-code">0xe83e</span>
+        </div>
+        <div class="span3" title="Code: 0xe83f">
+          <i class="demo-icon vbf-church">&#xe83f;</i> <span class="i-name">vbf-church</span><span class="i-code">0xe83f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe840">
+          <i class="demo-icon vbf-cinema">&#xe840;</i> <span class="i-name">vbf-cinema</span><span class="i-code">0xe840</span>
+        </div>
+        <div class="span3" title="Code: 0xe841">
+          <i class="demo-icon vbf-city">&#xe841;</i> <span class="i-name">vbf-city</span><span class="i-code">0xe841</span>
+        </div>
+        <div class="span3" title="Code: 0xe842">
+          <i class="demo-icon vbf-cleaners">&#xe842;</i> <span class="i-name">vbf-cleaners</span><span class="i-code">0xe842</span>
+        </div>
+        <div class="span3" title="Code: 0xe843">
+          <i class="demo-icon vbf-clothes-dryer">&#xe843;</i> <span class="i-name">vbf-clothes-dryer</span><span class="i-code">0xe843</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe844">
+          <i class="demo-icon vbf-club">&#xe844;</i> <span class="i-name">vbf-club</span><span class="i-code">0xe844</span>
+        </div>
+        <div class="span3" title="Code: 0xe845">
+          <i class="demo-icon vbf-coffee-machine">&#xe845;</i> <span class="i-name">vbf-coffee-machine</span><span class="i-code">0xe845</span>
+        </div>
+        <div class="span3" title="Code: 0xe846">
+          <i class="demo-icon vbf-compass">&#xe846;</i> <span class="i-name">vbf-compass</span><span class="i-code">0xe846</span>
+        </div>
+        <div class="span3" title="Code: 0xe847">
+          <i class="demo-icon vbf-conditioner">&#xe847;</i> <span class="i-name">vbf-conditioner</span><span class="i-code">0xe847</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe848">
+          <i class="demo-icon vbf-container">&#xe848;</i> <span class="i-name">vbf-container</span><span class="i-code">0xe848</span>
+        </div>
+        <div class="span3" title="Code: 0xe849">
+          <i class="demo-icon vbf-cookie">&#xe849;</i> <span class="i-name">vbf-cookie</span><span class="i-code">0xe849</span>
+        </div>
+        <div class="span3" title="Code: 0xe84a">
+          <i class="demo-icon vbf-cosmetics">&#xe84a;</i> <span class="i-name">vbf-cosmetics</span><span class="i-code">0xe84a</span>
+        </div>
+        <div class="span3" title="Code: 0xe84b">
+          <i class="demo-icon vbf-cosmetic-service">&#xe84b;</i> <span class="i-name">vbf-cosmetic-service</span><span class="i-code">0xe84b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe84c">
+          <i class="demo-icon vbf-account-dark">&#xe84c;</i> <span class="i-name">vbf-account-dark</span><span class="i-code">0xe84c</span>
+        </div>
+        <div class="span3" title="Code: 0xe84d">
+          <i class="demo-icon vbf-cupboard">&#xe84d;</i> <span class="i-name">vbf-cupboard</span><span class="i-code">0xe84d</span>
+        </div>
+        <div class="span3" title="Code: 0xe84e">
+          <i class="demo-icon vbf-currency-converter">&#xe84e;</i> <span class="i-name">vbf-currency-converter</span><span class="i-code">0xe84e</span>
+        </div>
+        <div class="span3" title="Code: 0xe84f">
+          <i class="demo-icon vbf-darts">&#xe84f;</i> <span class="i-name">vbf-darts</span><span class="i-code">0xe84f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe850">
+          <i class="demo-icon vbf-delivery">&#xe850;</i> <span class="i-name">vbf-delivery</span><span class="i-code">0xe850</span>
+        </div>
+        <div class="span3" title="Code: 0xe851">
+          <i class="demo-icon vbf-diet-menu">&#xe851;</i> <span class="i-name">vbf-diet-menu</span><span class="i-code">0xe851</span>
+        </div>
+        <div class="span3" title="Code: 0xe852">
+          <i class="demo-icon vbf-dishwasher">&#xe852;</i> <span class="i-name">vbf-dishwasher</span><span class="i-code">0xe852</span>
+        </div>
+        <div class="span3" title="Code: 0xe853">
+          <i class="demo-icon vbf-dislike">&#xe853;</i> <span class="i-name">vbf-dislike</span><span class="i-code">0xe853</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe854">
+          <i class="demo-icon vbf-distance">&#xe854;</i> <span class="i-name">vbf-distance</span><span class="i-code">0xe854</span>
+        </div>
+        <div class="span3" title="Code: 0xe855">
+          <i class="demo-icon vbf-diving">&#xe855;</i> <span class="i-name">vbf-diving</span><span class="i-code">0xe855</span>
+        </div>
+        <div class="span3" title="Code: 0xe856">
+          <i class="demo-icon vbf-dots-hor">&#xe856;</i> <span class="i-name">vbf-dots-hor</span><span class="i-code">0xe856</span>
+        </div>
+        <div class="span3" title="Code: 0xe857">
+          <i class="demo-icon vbf-dots-ver">&#xe857;</i> <span class="i-name">vbf-dots-ver</span><span class="i-code">0xe857</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe858">
+          <i class="demo-icon vbf-dryer">&#xe858;</i> <span class="i-name">vbf-dryer</span><span class="i-code">0xe858</span>
+        </div>
+        <div class="span3" title="Code: 0xe859">
+          <i class="demo-icon vbf-dvd">&#xe859;</i> <span class="i-name">vbf-dvd</span><span class="i-code">0xe859</span>
+        </div>
+        <div class="span3" title="Code: 0xe85a">
+          <i class="demo-icon vbf-check">&#xe85a;</i> <span class="i-name">vbf-check</span><span class="i-code">0xe85a</span>
+        </div>
+        <div class="span3" title="Code: 0xe85b">
+          <i class="demo-icon vbf-elevator">&#xe85b;</i> <span class="i-name">vbf-elevator</span><span class="i-code">0xe85b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe85c">
+          <i class="demo-icon vbf-entertaiment">&#xe85c;</i> <span class="i-name">vbf-entertaiment</span><span class="i-code">0xe85c</span>
+        </div>
+        <div class="span3" title="Code: 0xe85d">
+          <i class="demo-icon vbf-el-kettle">&#xe85d;</i> <span class="i-name">vbf-el-kettle</span><span class="i-code">0xe85d</span>
+        </div>
+        <div class="span3" title="Code: 0xe85e">
+          <i class="demo-icon vbf-extra-wc">&#xe85e;</i> <span class="i-name">vbf-extra-wc</span><span class="i-code">0xe85e</span>
+        </div>
+        <div class="span3" title="Code: 0xe85f">
+          <i class="demo-icon vbf-eye-close">&#xe85f;</i> <span class="i-name">vbf-eye-close</span><span class="i-code">0xe85f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe860">
+          <i class="demo-icon vbf-eye">&#xe860;</i> <span class="i-name">vbf-eye</span><span class="i-code">0xe860</span>
+        </div>
+        <div class="span3" title="Code: 0xe861">
+          <i class="demo-icon vbf-facilities">&#xe861;</i> <span class="i-name">vbf-facilities</span><span class="i-code">0xe861</span>
+        </div>
+        <div class="span3" title="Code: 0xe862">
+          <i class="demo-icon vbf-no-comission">&#xe862;</i> <span class="i-name">vbf-no-comission</span><span class="i-code">0xe862</span>
+        </div>
+        <div class="span3" title="Code: 0xe863">
+          <i class="demo-icon vbf-fan">&#xe863;</i> <span class="i-name">vbf-fan</span><span class="i-code">0xe863</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe864">
+          <i class="demo-icon vbf-fast-reg-in">&#xe864;</i> <span class="i-name">vbf-fast-reg-in</span><span class="i-code">0xe864</span>
+        </div>
+        <div class="span3" title="Code: 0xe865">
+          <i class="demo-icon vbf-feather-pillow">&#xe865;</i> <span class="i-name">vbf-feather-pillow</span><span class="i-code">0xe865</span>
+        </div>
+        <div class="span3" title="Code: 0xe866">
+          <i class="demo-icon vbf-fire-alarm">&#xe866;</i> <span class="i-name">vbf-fire-alarm</span><span class="i-code">0xe866</span>
+        </div>
+        <div class="span3" title="Code: 0xe867">
+          <i class="demo-icon vbf-fire-extinguisher">&#xe867;</i> <span class="i-name">vbf-fire-extinguisher</span><span class="i-code">0xe867</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe868">
+          <i class="demo-icon vbf-fireplace">&#xe868;</i> <span class="i-name">vbf-fireplace</span><span class="i-code">0xe868</span>
+        </div>
+        <div class="span3" title="Code: 0xe869">
+          <i class="demo-icon vbf-fishing">&#xe869;</i> <span class="i-name">vbf-fishing</span><span class="i-code">0xe869</span>
+        </div>
+        <div class="span3" title="Code: 0xe86a">
+          <i class="demo-icon vbf-flag">&#xe86a;</i> <span class="i-name">vbf-flag</span><span class="i-code">0xe86a</span>
+        </div>
+        <div class="span3" title="Code: 0xe86b">
+          <i class="demo-icon vbf-food">&#xe86b;</i> <span class="i-name">vbf-food</span><span class="i-code">0xe86b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe86c">
+          <i class="demo-icon vbf-foot-bath">&#xe86c;</i> <span class="i-name">vbf-foot-bath</span><span class="i-code">0xe86c</span>
+        </div>
+        <div class="span3" title="Code: 0xe86d">
+          <i class="demo-icon vbf-fork-des">&#xe86d;</i> <span class="i-name">vbf-fork-des</span><span class="i-code">0xe86d</span>
+        </div>
+        <div class="span3" title="Code: 0xe86e">
+          <i class="demo-icon vbf-fridge">&#xe86e;</i> <span class="i-name">vbf-fridge</span><span class="i-code">0xe86e</span>
+        </div>
+        <div class="span3" title="Code: 0xe86f">
+          <i class="demo-icon vbf-fruits">&#xe86f;</i> <span class="i-name">vbf-fruits</span><span class="i-code">0xe86f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe870">
+          <i class="demo-icon vbf-suitcase-tag">&#xe870;</i> <span class="i-name">vbf-suitcase-tag</span><span class="i-code">0xe870</span>
+        </div>
+        <div class="span3" title="Code: 0xe871">
+          <i class="demo-icon vbf-gaming-room">&#xe871;</i> <span class="i-name">vbf-gaming-room</span><span class="i-code">0xe871</span>
+        </div>
+        <div class="span3" title="Code: 0xe872">
+          <i class="demo-icon vbf-garden">&#xe872;</i> <span class="i-name">vbf-garden</span><span class="i-code">0xe872</span>
+        </div>
+        <div class="span3" title="Code: 0xe873">
+          <i class="demo-icon vbf-garden-furniture">&#xe873;</i> <span class="i-name">vbf-garden-furniture</span><span class="i-code">0xe873</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe874">
+          <i class="demo-icon vbf-gen-wc">&#xe874;</i> <span class="i-name">vbf-gen-wc</span><span class="i-code">0xe874</span>
+        </div>
+        <div class="span3" title="Code: 0xe875">
+          <i class="demo-icon vbf-golf">&#xe875;</i> <span class="i-name">vbf-golf</span><span class="i-code">0xe875</span>
+        </div>
+        <div class="span3" title="Code: 0xe876">
+          <i class="demo-icon vbf-guest-protect">&#xe876;</i> <span class="i-name">vbf-guest-protect</span><span class="i-code">0xe876</span>
+        </div>
+        <div class="span3" title="Code: 0xe877">
+          <i class="demo-icon vbf-gym">&#xe877;</i> <span class="i-name">vbf-gym</span><span class="i-code">0xe877</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe878">
+          <i class="demo-icon vbf-hair-cond">&#xe878;</i> <span class="i-name">vbf-hair-cond</span><span class="i-code">0xe878</span>
+        </div>
+        <div class="span3" title="Code: 0xe879">
+          <i class="demo-icon vbf-hair-dryer">&#xe879;</i> <span class="i-name">vbf-hair-dryer</span><span class="i-code">0xe879</span>
+        </div>
+        <div class="span3" title="Code: 0xe87a">
+          <i class="demo-icon vbf-hamam">&#xe87a;</i> <span class="i-name">vbf-hamam</span><span class="i-code">0xe87a</span>
+        </div>
+        <div class="span3" title="Code: 0xe87b">
+          <i class="demo-icon vbf-handlers-bath">&#xe87b;</i> <span class="i-name">vbf-handlers-bath</span><span class="i-code">0xe87b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe87c">
+          <i class="demo-icon vbf-handlers-wc">&#xe87c;</i> <span class="i-name">vbf-handlers-wc</span><span class="i-code">0xe87c</span>
+        </div>
+        <div class="span3" title="Code: 0xe87d">
+          <i class="demo-icon vbf-hanger">&#xe87d;</i> <span class="i-name">vbf-hanger</span><span class="i-code">0xe87d</span>
+        </div>
+        <div class="span3" title="Code: 0xe87e">
+          <i class="demo-icon vbf-happy-hours">&#xe87e;</i> <span class="i-name">vbf-happy-hours</span><span class="i-code">0xe87e</span>
+        </div>
+        <div class="span3" title="Code: 0xe87f">
+          <i class="demo-icon vbf-headphones">&#xe87f;</i> <span class="i-name">vbf-headphones</span><span class="i-code">0xe87f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe880">
+          <i class="demo-icon vbf-heating">&#xe880;</i> <span class="i-name">vbf-heating</span><span class="i-code">0xe880</span>
+        </div>
+        <div class="span3" title="Code: 0xe881">
+          <i class="demo-icon vbf-heating-blanket">&#xe881;</i> <span class="i-name">vbf-heating-blanket</span><span class="i-code">0xe881</span>
+        </div>
+        <div class="span3" title="Code: 0xe882">
+          <i class="demo-icon vbf-high-kids-chair">&#xe882;</i> <span class="i-name">vbf-high-kids-chair</span><span class="i-code">0xe882</span>
+        </div>
+        <div class="span3" title="Code: 0xe883">
+          <i class="demo-icon vbf-high-wc">&#xe883;</i> <span class="i-name">vbf-high-wc</span><span class="i-code">0xe883</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe884">
+          <i class="demo-icon vbf-home-dark">&#xe884;</i> <span class="i-name">vbf-home-dark</span><span class="i-code">0xe884</span>
+        </div>
+        <div class="span3" title="Code: 0xe885">
+          <i class="demo-icon vbf-horse">&#xe885;</i> <span class="i-name">vbf-horse</span><span class="i-code">0xe885</span>
+        </div>
+        <div class="span3" title="Code: 0xe886">
+          <i class="demo-icon vbf-hot-spring">&#xe886;</i> <span class="i-name">vbf-hot-spring</span><span class="i-code">0xe886</span>
+        </div>
+        <div class="span3" title="Code: 0xe887">
+          <i class="demo-icon vbf-hypoallergenic">&#xe887;</i> <span class="i-name">vbf-hypoallergenic</span><span class="i-code">0xe887</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe888">
+          <i class="demo-icon vbf-hypoallergenic-pillow">&#xe888;</i> <span class="i-name">vbf-hypoallergenic-pillow</span><span class="i-code">0xe888</span>
+        </div>
+        <div class="span3" title="Code: 0xe889">
+          <i class="demo-icon vbf-image">&#xe889;</i> <span class="i-name">vbf-image</span><span class="i-code">0xe889</span>
+        </div>
+        <div class="span3" title="Code: 0xe88a">
+          <i class="demo-icon vbf-vbonus">&#xe88a;</i> <span class="i-name">vbf-vbonus</span><span class="i-code">0xe88a</span>
+        </div>
+        <div class="span3" title="Code: 0xe88b">
+          <i class="demo-icon vbf-internet">&#xe88b;</i> <span class="i-name">vbf-internet</span><span class="i-code">0xe88b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe88c">
+          <i class="demo-icon vbf-invalid">&#xe88c;</i> <span class="i-name">vbf-invalid</span><span class="i-code">0xe88c</span>
+        </div>
+        <div class="span3" title="Code: 0xe88d">
+          <i class="demo-icon vbf-ipad">&#xe88d;</i> <span class="i-name">vbf-ipad</span><span class="i-code">0xe88d</span>
+        </div>
+        <div class="span3" title="Code: 0xe88e">
+          <i class="demo-icon vbf-iron">&#xe88e;</i> <span class="i-name">vbf-iron</span><span class="i-code">0xe88e</span>
+        </div>
+        <div class="span3" title="Code: 0xe88f">
+          <i class="demo-icon vbf-jaccuzi">&#xe88f;</i> <span class="i-name">vbf-jaccuzi</span><span class="i-code">0xe88f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe890">
+          <i class="demo-icon vbf-kanoe">&#xe890;</i> <span class="i-name">vbf-kanoe</span><span class="i-code">0xe890</span>
+        </div>
+        <div class="span3" title="Code: 0xe891">
+          <i class="demo-icon vbf-karaoke">&#xe891;</i> <span class="i-name">vbf-karaoke</span><span class="i-code">0xe891</span>
+        </div>
+        <div class="span3" title="Code: 0xe892">
+          <i class="demo-icon vbf-kettle">&#xe892;</i> <span class="i-name">vbf-kettle</span><span class="i-code">0xe892</span>
+        </div>
+        <div class="span3" title="Code: 0xe893">
+          <i class="demo-icon vbf-ring-bell">&#xe893;</i> <span class="i-name">vbf-ring-bell</span><span class="i-code">0xe893</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe894">
+          <i class="demo-icon vbf-key-safe">&#xe894;</i> <span class="i-name">vbf-key-safe</span><span class="i-code">0xe894</span>
+        </div>
+        <div class="span3" title="Code: 0xe895">
+          <i class="demo-icon vbf-kids-barrier">&#xe895;</i> <span class="i-name">vbf-kids-barrier</span><span class="i-code">0xe895</span>
+        </div>
+        <div class="span3" title="Code: 0xe896">
+          <i class="demo-icon vbf-tariff-calendar">&#xe896;</i> <span class="i-name">vbf-tariff-calendar</span><span class="i-code">0xe896</span>
+        </div>
+        <div class="span3" title="Code: 0xe897">
+          <i class="demo-icon vbf-kids-club">&#xe897;</i> <span class="i-name">vbf-kids-club</span><span class="i-code">0xe897</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe898">
+          <i class="demo-icon vbf-kids-media">&#xe898;</i> <span class="i-name">vbf-kids-media</span><span class="i-code">0xe898</span>
+        </div>
+        <div class="span3" title="Code: 0xe899">
+          <i class="demo-icon vbf-kids-menu">&#xe899;</i> <span class="i-name">vbf-kids-menu</span><span class="i-code">0xe899</span>
+        </div>
+        <div class="span3" title="Code: 0xe89a">
+          <i class="demo-icon vbf-laptop">&#xe89a;</i> <span class="i-name">vbf-laptop</span><span class="i-code">0xe89a</span>
+        </div>
+        <div class="span3" title="Code: 0xe89b">
+          <i class="demo-icon vbf-lifebuoy">&#xe89b;</i> <span class="i-name">vbf-lifebuoy</span><span class="i-code">0xe89b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe89c">
+          <i class="demo-icon vbf-like">&#xe89c;</i> <span class="i-name">vbf-like</span><span class="i-code">0xe89c</span>
+        </div>
+        <div class="span3" title="Code: 0xe89d">
+          <i class="demo-icon vbf-linen">&#xe89d;</i> <span class="i-name">vbf-linen</span><span class="i-code">0xe89d</span>
+        </div>
+        <div class="span3" title="Code: 0xe89e">
+          <i class="demo-icon vbf-linen-pay">&#xe89e;</i> <span class="i-name">vbf-linen-pay</span><span class="i-code">0xe89e</span>
+        </div>
+        <div class="span3" title="Code: 0xe89f">
+          <i class="demo-icon vbf-key">&#xe89f;</i> <span class="i-name">vbf-key</span><span class="i-code">0xe89f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8a0">
+          <i class="demo-icon vbf-locker">&#xe8a0;</i> <span class="i-name">vbf-locker</span><span class="i-code">0xe8a0</span>
+        </div>
+        <div class="span3" title="Code: 0xe8a1">
+          <i class="demo-icon vbf-balcony">&#xe8a1;</i> <span class="i-name">vbf-balcony</span><span class="i-code">0xe8a1</span>
+        </div>
+        <div class="span3" title="Code: 0xe8a2">
+          <i class="demo-icon vbf-family">&#xe8a2;</i> <span class="i-name">vbf-family</span><span class="i-code">0xe8a2</span>
+        </div>
+        <div class="span3" title="Code: 0xe8a3">
+          <i class="demo-icon vbf-long-bed">&#xe8a3;</i> <span class="i-name">vbf-long-bed</span><span class="i-code">0xe8a3</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8a4">
+          <i class="demo-icon vbf-lounge">&#xe8a4;</i> <span class="i-name">vbf-lounge</span><span class="i-code">0xe8a4</span>
+        </div>
+        <div class="span3" title="Code: 0xe8a5">
+          <i class="demo-icon vbf-low-sink">&#xe8a5;</i> <span class="i-name">vbf-low-sink</span><span class="i-code">0xe8a5</span>
+        </div>
+        <div class="span3" title="Code: 0xe8a6">
+          <i class="demo-icon vbf-kids-bed">&#xe8a6;</i> <span class="i-name">vbf-kids-bed</span><span class="i-code">0xe8a6</span>
+        </div>
+        <div class="span3" title="Code: 0xe8a7">
+          <i class="demo-icon vbf-mailto">&#xe8a7;</i> <span class="i-name">vbf-mailto</span><span class="i-code">0xe8a7</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8a8">
+          <i class="demo-icon vbf-map">&#xe8a8;</i> <span class="i-name">vbf-map</span><span class="i-code">0xe8a8</span>
+        </div>
+        <div class="span3" title="Code: 0xe8a9">
+          <i class="demo-icon vbf-map-marker">&#xe8a9;</i> <span class="i-name">vbf-map-marker</span><span class="i-code">0xe8a9</span>
+        </div>
+        <div class="span3" title="Code: 0xe8aa">
+          <i class="demo-icon vbf-marble">&#xe8aa;</i> <span class="i-name">vbf-marble</span><span class="i-code">0xe8aa</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ab">
+          <i class="demo-icon vbf-massage">&#xe8ab;</i> <span class="i-name">vbf-massage</span><span class="i-code">0xe8ab</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8ac">
+          <i class="demo-icon vbf-massage-chair">&#xe8ac;</i> <span class="i-name">vbf-massage-chair</span><span class="i-code">0xe8ac</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ad">
+          <i class="demo-icon vbf-medal">&#xe8ad;</i> <span class="i-name">vbf-medal</span><span class="i-code">0xe8ad</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ae">
+          <i class="demo-icon vbf-media">&#xe8ae;</i> <span class="i-name">vbf-media</span><span class="i-code">0xe8ae</span>
+        </div>
+        <div class="span3" title="Code: 0xe8af">
+          <i class="demo-icon vbf-microwave">&#xe8af;</i> <span class="i-name">vbf-microwave</span><span class="i-code">0xe8af</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8b0">
+          <i class="demo-icon vbf-minus">&#xe8b0;</i> <span class="i-name">vbf-minus</span><span class="i-code">0xe8b0</span>
+        </div>
+        <div class="span3" title="Code: 0xe8b1">
+          <i class="demo-icon vbf-minus-big">&#xe8b1;</i> <span class="i-name">vbf-minus-big</span><span class="i-code">0xe8b1</span>
+        </div>
+        <div class="span3" title="Code: 0xe8b2">
+          <i class="demo-icon vbf-minus-circle">&#xe8b2;</i> <span class="i-name">vbf-minus-circle</span><span class="i-code">0xe8b2</span>
+        </div>
+        <div class="span3" title="Code: 0xe8b3">
+          <i class="demo-icon vbf-mirror">&#xe8b3;</i> <span class="i-name">vbf-mirror</span><span class="i-code">0xe8b3</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8b4">
+          <i class="demo-icon vbf-mobile">&#xe8b4;</i> <span class="i-name">vbf-mobile</span><span class="i-code">0xe8b4</span>
+        </div>
+        <div class="span3" title="Code: 0xe8b5">
+          <i class="demo-icon vbf-mobile-key">&#xe8b5;</i> <span class="i-name">vbf-mobile-key</span><span class="i-code">0xe8b5</span>
+        </div>
+        <div class="span3" title="Code: 0xe8b6">
+          <i class="demo-icon vbf-moon">&#xe8b6;</i> <span class="i-name">vbf-moon</span><span class="i-code">0xe8b6</span>
+        </div>
+        <div class="span3" title="Code: 0xe8b7">
+          <i class="demo-icon vbf-mountains">&#xe8b7;</i> <span class="i-name">vbf-mountains</span><span class="i-code">0xe8b7</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8b8">
+          <i class="demo-icon vbf-music">&#xe8b8;</i> <span class="i-name">vbf-music</span><span class="i-code">0xe8b8</span>
+        </div>
+        <div class="span3" title="Code: 0xe8b9">
+          <i class="demo-icon vbf-nanny">&#xe8b9;</i> <span class="i-name">vbf-nanny</span><span class="i-code">0xe8b9</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ba">
+          <i class="demo-icon vbf-no">&#xe8ba;</i> <span class="i-name">vbf-no</span><span class="i-code">0xe8ba</span>
+        </div>
+        <div class="span3" title="Code: 0xe8bb">
+          <i class="demo-icon vbf-no-cleaners">&#xe8bb;</i> <span class="i-name">vbf-no-cleaners</span><span class="i-code">0xe8bb</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8bc">
+          <i class="demo-icon vbf-no-contact">&#xe8bc;</i> <span class="i-name">vbf-no-contact</span><span class="i-code">0xe8bc</span>
+        </div>
+        <div class="span3" title="Code: 0xe8bd">
+          <i class="demo-icon vbf-no-covid">&#xe8bd;</i> <span class="i-name">vbf-no-covid</span><span class="i-code">0xe8bd</span>
+        </div>
+        <div class="span3" title="Code: 0xe8be">
+          <i class="demo-icon vbf-no-mosq">&#xe8be;</i> <span class="i-name">vbf-no-mosq</span><span class="i-code">0xe8be</span>
+        </div>
+        <div class="span3" title="Code: 0xe8bf">
+          <i class="demo-icon vbf-no-parking">&#xe8bf;</i> <span class="i-name">vbf-no-parking</span><span class="i-code">0xe8bf</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8c0">
+          <i class="demo-icon vbf-no-smile">&#xe8c0;</i> <span class="i-name">vbf-no-smile</span><span class="i-code">0xe8c0</span>
+        </div>
+        <div class="span3" title="Code: 0xe8c1">
+          <i class="demo-icon vbf-no-smoking">&#xe8c1;</i> <span class="i-name">vbf-no-smoking</span><span class="i-code">0xe8c1</span>
+        </div>
+        <div class="span3" title="Code: 0xe8c2">
+          <i class="demo-icon vbf-ok">&#xe8c2;</i> <span class="i-name">vbf-ok</span><span class="i-code">0xe8c2</span>
+        </div>
+        <div class="span3" title="Code: 0xe8c3">
+          <i class="demo-icon vbf-chess-calendar">&#xe8c3;</i> <span class="i-name">vbf-chess-calendar</span><span class="i-code">0xe8c3</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8c4">
+          <i class="demo-icon vbf-tag">&#xe8c4;</i> <span class="i-name">vbf-tag</span><span class="i-code">0xe8c4</span>
+        </div>
+        <div class="span3" title="Code: 0xe8c5">
+          <i class="demo-icon vbf-online-pass">&#xe8c5;</i> <span class="i-name">vbf-online-pass</span><span class="i-code">0xe8c5</span>
+        </div>
+        <div class="span3" title="Code: 0xe8c6">
+          <i class="demo-icon vbf-outdoor-food">&#xe8c6;</i> <span class="i-name">vbf-outdoor-food</span><span class="i-code">0xe8c6</span>
+        </div>
+        <div class="span3" title="Code: 0xe8c7">
+          <i class="demo-icon vbf-outdoor-furniture">&#xe8c7;</i> <span class="i-name">vbf-outdoor-furniture</span><span class="i-code">0xe8c7</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8c8">
+          <i class="demo-icon vbf-outdoor-tennis">&#xe8c8;</i> <span class="i-name">vbf-outdoor-tennis</span><span class="i-code">0xe8c8</span>
+        </div>
+        <div class="span3" title="Code: 0xe8c9">
+          <i class="demo-icon vbf-oven">&#xe8c9;</i> <span class="i-name">vbf-oven</span><span class="i-code">0xe8c9</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ca">
+          <i class="demo-icon vbf-pajama">&#xe8ca;</i> <span class="i-name">vbf-pajama</span><span class="i-code">0xe8ca</span>
+        </div>
+        <div class="span3" title="Code: 0xe8cb">
+          <i class="demo-icon vbf-pan">&#xe8cb;</i> <span class="i-name">vbf-pan</span><span class="i-code">0xe8cb</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8cc">
+          <i class="demo-icon vbf-panoram">&#xe8cc;</i> <span class="i-name">vbf-panoram</span><span class="i-code">0xe8cc</span>
+        </div>
+        <div class="span3" title="Code: 0xe8cd">
+          <i class="demo-icon vbf-parking">&#xe8cd;</i> <span class="i-name">vbf-parking</span><span class="i-code">0xe8cd</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ce">
+          <i class="demo-icon vbf-party">&#xe8ce;</i> <span class="i-name">vbf-party</span><span class="i-code">0xe8ce</span>
+        </div>
+        <div class="span3" title="Code: 0xe8cf">
+          <i class="demo-icon vbf-patio">&#xe8cf;</i> <span class="i-name">vbf-patio</span><span class="i-code">0xe8cf</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8d0">
+          <i class="demo-icon vbf-pay-tv">&#xe8d0;</i> <span class="i-name">vbf-pay-tv</span><span class="i-code">0xe8d0</span>
+        </div>
+        <div class="span3" title="Code: 0xe8d1">
+          <i class="demo-icon vbf-pc">&#xe8d1;</i> <span class="i-name">vbf-pc</span><span class="i-code">0xe8d1</span>
+        </div>
+        <div class="span3" title="Code: 0xe8d2">
+          <i class="demo-icon vbf-people">&#xe8d2;</i> <span class="i-name">vbf-people</span><span class="i-code">0xe8d2</span>
+        </div>
+        <div class="span3" title="Code: 0xe8d3">
+          <i class="demo-icon vbf-percent">&#xe8d3;</i> <span class="i-name">vbf-percent</span><span class="i-code">0xe8d3</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8d4">
+          <i class="demo-icon vbf-personal-protection">&#xe8d4;</i> <span class="i-name">vbf-personal-protection</span><span class="i-code">0xe8d4</span>
+        </div>
+        <div class="span3" title="Code: 0xe8d5">
+          <i class="demo-icon vbf-video">&#xe8d5;</i> <span class="i-name">vbf-video</span><span class="i-code">0xe8d5</span>
+        </div>
+        <div class="span3" title="Code: 0xe8d6">
+          <i class="demo-icon vbf-pharmacy">&#xe8d6;</i> <span class="i-name">vbf-pharmacy</span><span class="i-code">0xe8d6</span>
+        </div>
+        <div class="span3" title="Code: 0xe8d7">
+          <i class="demo-icon vbf-phone">&#xe8d7;</i> <span class="i-name">vbf-phone</span><span class="i-code">0xe8d7</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8d8">
+          <i class="demo-icon vbf-heart-broken">&#xe8d8;</i> <span class="i-name">vbf-heart-broken</span><span class="i-code">0xe8d8</span>
+        </div>
+        <div class="span3" title="Code: 0xe8d9">
+          <i class="demo-icon vbf-photozone">&#xe8d9;</i> <span class="i-name">vbf-photozone</span><span class="i-code">0xe8d9</span>
+        </div>
+        <div class="span3" title="Code: 0xe8da">
+          <i class="demo-icon vbf-picnic">&#xe8da;</i> <span class="i-name">vbf-picnic</span><span class="i-code">0xe8da</span>
+        </div>
+        <div class="span3" title="Code: 0xe8db">
+          <i class="demo-icon vbf-pin">&#xe8db;</i> <span class="i-name">vbf-pin</span><span class="i-code">0xe8db</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8dc">
+          <i class="demo-icon vbf-pin-key">&#xe8dc;</i> <span class="i-name">vbf-pin-key</span><span class="i-code">0xe8dc</span>
+        </div>
+        <div class="span3" title="Code: 0xe8dd">
+          <i class="demo-icon vbf-place">&#xe8dd;</i> <span class="i-name">vbf-place</span><span class="i-code">0xe8dd</span>
+        </div>
+        <div class="span3" title="Code: 0xe8de">
+          <i class="demo-icon vbf-plane">&#xe8de;</i> <span class="i-name">vbf-plane</span><span class="i-code">0xe8de</span>
+        </div>
+        <div class="span3" title="Code: 0xe8df">
+          <i class="demo-icon vbf-playground">&#xe8df;</i> <span class="i-name">vbf-playground</span><span class="i-code">0xe8df</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8e0">
+          <i class="demo-icon vbf-playstation">&#xe8e0;</i> <span class="i-name">vbf-playstation</span><span class="i-code">0xe8e0</span>
+        </div>
+        <div class="span3" title="Code: 0xe8e1">
+          <i class="demo-icon vbf-plus">&#xe8e1;</i> <span class="i-name">vbf-plus</span><span class="i-code">0xe8e1</span>
+        </div>
+        <div class="span3" title="Code: 0xe8e2">
+          <i class="demo-icon vbf-plus-big">&#xe8e2;</i> <span class="i-name">vbf-plus-big</span><span class="i-code">0xe8e2</span>
+        </div>
+        <div class="span3" title="Code: 0xe8e3">
+          <i class="demo-icon vbf-plus-circle">&#xe8e3;</i> <span class="i-name">vbf-plus-circle</span><span class="i-code">0xe8e3</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8e4">
+          <i class="demo-icon vbf-pool">&#xe8e4;</i> <span class="i-name">vbf-pool</span><span class="i-code">0xe8e4</span>
+        </div>
+        <div class="span3" title="Code: 0xe8e5">
+          <i class="demo-icon vbf-pram">&#xe8e5;</i> <span class="i-name">vbf-pram</span><span class="i-code">0xe8e5</span>
+        </div>
+        <div class="span3" title="Code: 0xe8e6">
+          <i class="demo-icon vbf-presentation">&#xe8e6;</i> <span class="i-name">vbf-presentation</span><span class="i-code">0xe8e6</span>
+        </div>
+        <div class="span3" title="Code: 0xe8e7">
+          <i class="demo-icon vbf-press">&#xe8e7;</i> <span class="i-name">vbf-press</span><span class="i-code">0xe8e7</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8e8">
+          <i class="demo-icon vbf-pub">&#xe8e8;</i> <span class="i-name">vbf-pub</span><span class="i-code">0xe8e8</span>
+        </div>
+        <div class="span3" title="Code: 0xe8e9">
+          <i class="demo-icon vbf-puzzle">&#xe8e9;</i> <span class="i-name">vbf-puzzle</span><span class="i-code">0xe8e9</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ea">
+          <i class="demo-icon vbf-q">&#xe8ea;</i> <span class="i-name">vbf-q</span><span class="i-code">0xe8ea</span>
+        </div>
+        <div class="span3" title="Code: 0xe8eb">
+          <i class="demo-icon vbf-dont-disturb">&#xe8eb;</i> <span class="i-name">vbf-dont-disturb</span><span class="i-code">0xe8eb</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8ec">
+          <i class="demo-icon vbf-radio">&#xe8ec;</i> <span class="i-name">vbf-radio</span><span class="i-code">0xe8ec</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ed">
+          <i class="demo-icon vbf-reception">&#xe8ed;</i> <span class="i-name">vbf-reception</span><span class="i-code">0xe8ed</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ee">
+          <i class="demo-icon vbf-reception-24">&#xe8ee;</i> <span class="i-name">vbf-reception-24</span><span class="i-code">0xe8ee</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ef">
+          <i class="demo-icon vbf-reverse">&#xe8ef;</i> <span class="i-name">vbf-reverse</span><span class="i-code">0xe8ef</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8f0">
+          <i class="demo-icon vbf-dont-disturb-dark">&#xe8f0;</i> <span class="i-name">vbf-dont-disturb-dark</span><span class="i-code">0xe8f0</span>
+        </div>
+        <div class="span3" title="Code: 0xe8f1">
+          <i class="demo-icon vbf-robe">&#xe8f1;</i> <span class="i-name">vbf-robe</span><span class="i-code">0xe8f1</span>
+        </div>
+        <div class="span3" title="Code: 0xe8f2">
+          <i class="demo-icon vbf-rub">&#xe8f2;</i> <span class="i-name">vbf-rub</span><span class="i-code">0xe8f2</span>
+        </div>
+        <div class="span3" title="Code: 0xe8f3">
+          <i class="demo-icon vbf-reflect-horizontal">&#xe8f3;</i> <span class="i-name">vbf-reflect-horizontal</span><span class="i-code">0xe8f3</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8f4">
+          <i class="demo-icon vbf-rub-circle">&#xe8f4;</i> <span class="i-name">vbf-rub-circle</span><span class="i-code">0xe8f4</span>
+        </div>
+        <div class="span3" title="Code: 0xe8f5">
+          <i class="demo-icon vbf-safe">&#xe8f5;</i> <span class="i-name">vbf-safe</span><span class="i-code">0xe8f5</span>
+        </div>
+        <div class="span3" title="Code: 0xe8f6">
+          <i class="demo-icon vbf-safety">&#xe8f6;</i> <span class="i-name">vbf-safety</span><span class="i-code">0xe8f6</span>
+        </div>
+        <div class="span3" title="Code: 0xe8f7">
+          <i class="demo-icon vbf-satelite-tv">&#xe8f7;</i> <span class="i-name">vbf-satelite-tv</span><span class="i-code">0xe8f7</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8f8">
+          <i class="demo-icon vbf-scale">&#xe8f8;</i> <span class="i-name">vbf-scale</span><span class="i-code">0xe8f8</span>
+        </div>
+        <div class="span3" title="Code: 0xe8f9">
+          <i class="demo-icon vbf-self-reg">&#xe8f9;</i> <span class="i-name">vbf-self-reg</span><span class="i-code">0xe8f9</span>
+        </div>
+        <div class="span3" title="Code: 0xe8fa">
+          <i class="demo-icon vbf-separate-door">&#xe8fa;</i> <span class="i-name">vbf-separate-door</span><span class="i-code">0xe8fa</span>
+        </div>
+        <div class="span3" title="Code: 0xe8fb">
+          <i class="demo-icon vbf-rotate">&#xe8fb;</i> <span class="i-name">vbf-rotate</span><span class="i-code">0xe8fb</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe8fc">
+          <i class="demo-icon vbf-settings">&#xe8fc;</i> <span class="i-name">vbf-settings</span><span class="i-code">0xe8fc</span>
+        </div>
+        <div class="span3" title="Code: 0xe8fd">
+          <i class="demo-icon vbf-shampoo">&#xe8fd;</i> <span class="i-name">vbf-shampoo</span><span class="i-code">0xe8fd</span>
+        </div>
+        <div class="span3" title="Code: 0xe8fe">
+          <i class="demo-icon vbf-share">&#xe8fe;</i> <span class="i-name">vbf-share</span><span class="i-code">0xe8fe</span>
+        </div>
+        <div class="span3" title="Code: 0xe8ff">
+          <i class="demo-icon vbf-shop">&#xe8ff;</i> <span class="i-name">vbf-shop</span><span class="i-code">0xe8ff</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe900">
+          <i class="demo-icon vbf-shower">&#xe900;</i> <span class="i-name">vbf-shower</span><span class="i-code">0xe900</span>
+        </div>
+        <div class="span3" title="Code: 0xe901">
+          <i class="demo-icon vbf-shower-cap">&#xe901;</i> <span class="i-name">vbf-shower-cap</span><span class="i-code">0xe901</span>
+        </div>
+        <div class="span3" title="Code: 0xe902">
+          <i class="demo-icon vbf-shower-chair">&#xe902;</i> <span class="i-name">vbf-shower-chair</span><span class="i-code">0xe902</span>
+        </div>
+        <div class="span3" title="Code: 0xe903">
+          <i class="demo-icon vbf-sight">&#xe903;</i> <span class="i-name">vbf-sight</span><span class="i-code">0xe903</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe904">
+          <i class="demo-icon vbf-signalisation">&#xe904;</i> <span class="i-name">vbf-signalisation</span><span class="i-code">0xe904</span>
+        </div>
+        <div class="span3" title="Code: 0xe905">
+          <i class="demo-icon vbf-ski">&#xe905;</i> <span class="i-name">vbf-ski</span><span class="i-code">0xe905</span>
+        </div>
+        <div class="span3" title="Code: 0xe906">
+          <i class="demo-icon vbf-slippers">&#xe906;</i> <span class="i-name">vbf-slippers</span><span class="i-code">0xe906</span>
+        </div>
+        <div class="span3" title="Code: 0xe907">
+          <i class="demo-icon vbf-smartphone">&#xe907;</i> <span class="i-name">vbf-smartphone</span><span class="i-code">0xe907</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe908">
+          <i class="demo-icon vbf-smartphone-outline">&#xe908;</i> <span class="i-name">vbf-smartphone-outline</span><span class="i-code">0xe908</span>
+        </div>
+        <div class="span3" title="Code: 0xe909">
+          <i class="demo-icon vbf-smart-tv">&#xe909;</i> <span class="i-name">vbf-smart-tv</span><span class="i-code">0xe909</span>
+        </div>
+        <div class="span3" title="Code: 0xe90a">
+          <i class="demo-icon vbf-smile">&#xe90a;</i> <span class="i-name">vbf-smile</span><span class="i-code">0xe90a</span>
+        </div>
+        <div class="span3" title="Code: 0xe90b">
+          <i class="demo-icon vbf-smoking">&#xe90b;</i> <span class="i-name">vbf-smoking</span><span class="i-code">0xe90b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe90c">
+          <i class="demo-icon vbf-snack-bar">&#xe90c;</i> <span class="i-name">vbf-snack-bar</span><span class="i-code">0xe90c</span>
+        </div>
+        <div class="span3" title="Code: 0xe90d">
+          <i class="demo-icon vbf-soap">&#xe90d;</i> <span class="i-name">vbf-soap</span><span class="i-code">0xe90d</span>
+        </div>
+        <div class="span3" title="Code: 0xe90e">
+          <i class="demo-icon vbf-socket-lid">&#xe90e;</i> <span class="i-name">vbf-socket-lid</span><span class="i-code">0xe90e</span>
+        </div>
+        <div class="span3" title="Code: 0xe90f">
+          <i class="demo-icon vbf-reflect-vertical">&#xe90f;</i> <span class="i-name">vbf-reflect-vertical</span><span class="i-code">0xe90f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe910">
+          <i class="demo-icon vbf-kid">&#xe910;</i> <span class="i-name">vbf-kid</span><span class="i-code">0xe910</span>
+        </div>
+        <div class="span3" title="Code: 0xe911">
+          <i class="demo-icon vbf-sos">&#xe911;</i> <span class="i-name">vbf-sos</span><span class="i-code">0xe911</span>
+        </div>
+        <div class="span3" title="Code: 0xe912">
+          <i class="demo-icon vbf-soundproofing">&#xe912;</i> <span class="i-name">vbf-soundproofing</span><span class="i-code">0xe912</span>
+        </div>
+        <div class="span3" title="Code: 0xe913">
+          <i class="demo-icon vbf-souvenir">&#xe913;</i> <span class="i-name">vbf-souvenir</span><span class="i-code">0xe913</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe914">
+          <i class="demo-icon vbf-spa">&#xe914;</i> <span class="i-name">vbf-spa</span><span class="i-code">0xe914</span>
+        </div>
+        <div class="span3" title="Code: 0xe915">
+          <i class="demo-icon vbf-sport">&#xe915;</i> <span class="i-name">vbf-sport</span><span class="i-code">0xe915</span>
+        </div>
+        <div class="span3" title="Code: 0xe916">
+          <i class="demo-icon vbf-stair">&#xe916;</i> <span class="i-name">vbf-stair</span><span class="i-code">0xe916</span>
+        </div>
+        <div class="span3" title="Code: 0xe917">
+          <i class="demo-icon vbf-star">&#xe917;</i> <span class="i-name">vbf-star</span><span class="i-code">0xe917</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe918">
+          <i class="demo-icon vbf-star-outline">&#xe918;</i> <span class="i-name">vbf-star-outline</span><span class="i-code">0xe918</span>
+        </div>
+        <div class="span3" title="Code: 0xe919">
+          <i class="demo-icon vbf-stove">&#xe919;</i> <span class="i-name">vbf-stove</span><span class="i-code">0xe919</span>
+        </div>
+        <div class="span3" title="Code: 0xe91a">
+          <i class="demo-icon vbf-surfing">&#xe91a;</i> <span class="i-name">vbf-surfing</span><span class="i-code">0xe91a</span>
+        </div>
+        <div class="span3" title="Code: 0xe91b">
+          <i class="demo-icon vbf-link">&#xe91b;</i> <span class="i-name">vbf-link</span><span class="i-code">0xe91b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe91c">
+          <i class="demo-icon vbf-swap-vert">&#xe91c;</i> <span class="i-name">vbf-swap-vert</span><span class="i-code">0xe91c</span>
+        </div>
+        <div class="span3" title="Code: 0xe91d">
+          <i class="demo-icon vbf-synth-pillow">&#xe91d;</i> <span class="i-name">vbf-synth-pillow</span><span class="i-code">0xe91d</span>
+        </div>
+        <div class="span3" title="Code: 0xe91e">
+          <i class="demo-icon vbf-table-food">&#xe91e;</i> <span class="i-name">vbf-table-food</span><span class="i-code">0xe91e</span>
+        </div>
+        <div class="span3" title="Code: 0xe91f">
+          <i class="demo-icon vbf-i">&#xe91f;</i> <span class="i-name">vbf-i</span><span class="i-code">0xe91f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe920">
+          <i class="demo-icon vbf-tennis-indoor">&#xe920;</i> <span class="i-name">vbf-tennis-indoor</span><span class="i-code">0xe920</span>
+        </div>
+        <div class="span3" title="Code: 0xe921">
+          <i class="demo-icon vbf-terrace">&#xe921;</i> <span class="i-name">vbf-terrace</span><span class="i-code">0xe921</span>
+        </div>
+        <div class="span3" title="Code: 0xe922">
+          <i class="demo-icon vbf-map-marker-dark">&#xe922;</i> <span class="i-name">vbf-map-marker-dark</span><span class="i-code">0xe922</span>
+        </div>
+        <div class="span3" title="Code: 0xe923">
+          <i class="demo-icon vbf-people-outline">&#xe923;</i> <span class="i-name">vbf-people-outline</span><span class="i-code">0xe923</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe924">
+          <i class="demo-icon vbf-time">&#xe924;</i> <span class="i-name">vbf-time</span><span class="i-code">0xe924</span>
+        </div>
+        <div class="span3" title="Code: 0xe925">
+          <i class="demo-icon vbf-toaster">&#xe925;</i> <span class="i-name">vbf-toaster</span><span class="i-code">0xe925</span>
+        </div>
+        <div class="span3" title="Code: 0xe926">
+          <i class="demo-icon vbf-toilet-paper">&#xe926;</i> <span class="i-name">vbf-toilet-paper</span><span class="i-code">0xe926</span>
+        </div>
+        <div class="span3" title="Code: 0xe927">
+          <i class="demo-icon vbf-toothbrush">&#xe927;</i> <span class="i-name">vbf-toothbrush</span><span class="i-code">0xe927</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe928">
+          <i class="demo-icon vbf-towel">&#xe928;</i> <span class="i-name">vbf-towel</span><span class="i-code">0xe928</span>
+        </div>
+        <div class="span3" title="Code: 0xe929">
+          <i class="demo-icon vbf-trainer">&#xe929;</i> <span class="i-name">vbf-trainer</span><span class="i-code">0xe929</span>
+        </div>
+        <div class="span3" title="Code: 0xe92a">
+          <i class="demo-icon vbf-transfer">&#xe92a;</i> <span class="i-name">vbf-transfer</span><span class="i-code">0xe92a</span>
+        </div>
+        <div class="span3" title="Code: 0xe92b">
+          <i class="demo-icon vbf-transport">&#xe92b;</i> <span class="i-name">vbf-transport</span><span class="i-code">0xe92b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe92c">
+          <i class="demo-icon vbf-transport-ticket">&#xe92c;</i> <span class="i-name">vbf-transport-ticket</span><span class="i-code">0xe92c</span>
+        </div>
+        <div class="span3" title="Code: 0xe92d">
+          <i class="demo-icon vbf-triangle-down">&#xe92d;</i> <span class="i-name">vbf-triangle-down</span><span class="i-code">0xe92d</span>
+        </div>
+        <div class="span3" title="Code: 0xe92e">
+          <i class="demo-icon vbf-triangle-down-low">&#xe92e;</i> <span class="i-name">vbf-triangle-down-low</span><span class="i-code">0xe92e</span>
+        </div>
+        <div class="span3" title="Code: 0xe92f">
+          <i class="demo-icon vbf-triangle-left">&#xe92f;</i> <span class="i-name">vbf-triangle-left</span><span class="i-code">0xe92f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe930">
+          <i class="demo-icon vbf-triangle-left-low">&#xe930;</i> <span class="i-name">vbf-triangle-left-low</span><span class="i-code">0xe930</span>
+        </div>
+        <div class="span3" title="Code: 0xe931">
+          <i class="demo-icon vbf-triangle-right">&#xe931;</i> <span class="i-name">vbf-triangle-right</span><span class="i-code">0xe931</span>
+        </div>
+        <div class="span3" title="Code: 0xe932">
+          <i class="demo-icon vbf-triangle-right-low">&#xe932;</i> <span class="i-name">vbf-triangle-right-low</span><span class="i-code">0xe932</span>
+        </div>
+        <div class="span3" title="Code: 0xe933">
+          <i class="demo-icon vbf-triangle-up">&#xe933;</i> <span class="i-name">vbf-triangle-up</span><span class="i-code">0xe933</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe934">
+          <i class="demo-icon vbf-triangle-up-low">&#xe934;</i> <span class="i-name">vbf-triangle-up-low</span><span class="i-code">0xe934</span>
+        </div>
+        <div class="span3" title="Code: 0xe935">
+          <i class="demo-icon vbf-trousers-press">&#xe935;</i> <span class="i-name">vbf-trousers-press</span><span class="i-code">0xe935</span>
+        </div>
+        <div class="span3" title="Code: 0xe936">
+          <i class="demo-icon vbf-tv">&#xe936;</i> <span class="i-name">vbf-tv</span><span class="i-code">0xe936</span>
+        </div>
+        <div class="span3" title="Code: 0xe937">
+          <i class="demo-icon vbf-ukata">&#xe937;</i> <span class="i-name">vbf-ukata</span><span class="i-code">0xe937</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe938">
+          <i class="demo-icon vbf-umbrella">&#xe938;</i> <span class="i-name">vbf-umbrella</span><span class="i-code">0xe938</span>
+        </div>
+        <div class="span3" title="Code: 0xe939">
+          <i class="demo-icon vbf-vending-deverages">&#xe939;</i> <span class="i-name">vbf-vending-deverages</span><span class="i-code">0xe939</span>
+        </div>
+        <div class="span3" title="Code: 0xe93a">
+          <i class="demo-icon vbf-vending-food">&#xe93a;</i> <span class="i-name">vbf-vending-food</span><span class="i-code">0xe93a</span>
+        </div>
+        <div class="span3" title="Code: 0xe93b">
+          <i class="demo-icon vbf-vip">&#xe93b;</i> <span class="i-name">vbf-vip</span><span class="i-code">0xe93b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe93c">
+          <i class="demo-icon vbf-login">&#xe93c;</i> <span class="i-name">vbf-login</span><span class="i-code">0xe93c</span>
+        </div>
+        <div class="span3" title="Code: 0xe93d">
+          <i class="demo-icon vbf-vertical-grid-dark">&#xe93d;</i> <span class="i-name">vbf-vertical-grid-dark</span><span class="i-code">0xe93d</span>
+        </div>
+        <div class="span3" title="Code: 0xe93e">
+          <i class="demo-icon vbf-grid-dark">&#xe93e;</i> <span class="i-name">vbf-grid-dark</span><span class="i-code">0xe93e</span>
+        </div>
+        <div class="span3" title="Code: 0xe93f">
+          <i class="demo-icon vbf-wardrobe">&#xe93f;</i> <span class="i-name">vbf-wardrobe</span><span class="i-code">0xe93f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe940">
+          <i class="demo-icon vbf-washmachine">&#xe940;</i> <span class="i-name">vbf-washmachine</span><span class="i-code">0xe940</span>
+        </div>
+        <div class="span3" title="Code: 0xe941">
+          <i class="demo-icon vbf-water-out">&#xe941;</i> <span class="i-name">vbf-water-out</span><span class="i-code">0xe941</span>
+        </div>
+        <div class="span3" title="Code: 0xe942">
+          <i class="demo-icon vbf-water-sport">&#xe942;</i> <span class="i-name">vbf-water-sport</span><span class="i-code">0xe942</span>
+        </div>
+        <div class="span3" title="Code: 0xe943">
+          <i class="demo-icon vbf-wc">&#xe943;</i> <span class="i-name">vbf-wc</span><span class="i-code">0xe943</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe944">
+          <i class="demo-icon vbf-mail">&#xe944;</i> <span class="i-name">vbf-mail</span><span class="i-code">0xe944</span>
+        </div>
+        <div class="span3" title="Code: 0xe945">
+          <i class="demo-icon vbf-where">&#xe945;</i> <span class="i-name">vbf-where</span><span class="i-code">0xe945</span>
+        </div>
+        <div class="span3" title="Code: 0xe946">
+          <i class="demo-icon vbf-wifi">&#xe946;</i> <span class="i-name">vbf-wifi</span><span class="i-code">0xe946</span>
+        </div>
+        <div class="span3" title="Code: 0xe947">
+          <i class="demo-icon vbf-wifi-pay">&#xe947;</i> <span class="i-name">vbf-wifi-pay</span><span class="i-code">0xe947</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe948">
+          <i class="demo-icon vbf-window">&#xe948;</i> <span class="i-name">vbf-window</span><span class="i-code">0xe948</span>
+        </div>
+        <div class="span3" title="Code: 0xe949">
+          <i class="demo-icon vbf-loading">&#xe949;</i> <span class="i-name">vbf-loading</span><span class="i-code">0xe949</span>
+        </div>
+        <div class="span3" title="Code: 0xe94a">
+          <i class="demo-icon vbf-quote-right">&#xe94a;</i> <span class="i-name">vbf-quote-right</span><span class="i-code">0xe94a</span>
+        </div>
+        <div class="span3" title="Code: 0xe94b">
+          <i class="demo-icon vbf-clip">&#xe94b;</i> <span class="i-name">vbf-clip</span><span class="i-code">0xe94b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe94c">
+          <i class="demo-icon vbf-share-2">&#xe94c;</i> <span class="i-name">vbf-share-2</span><span class="i-code">0xe94c</span>
+        </div>
+        <div class="span3" title="Code: 0xe950">
+          <i class="demo-icon vbf-quote-left">&#xe950;</i> <span class="i-name">vbf-quote-left</span><span class="i-code">0xe950</span>
+        </div>
+        <div class="span3" title="Code: 0xe951">
+          <i class="demo-icon vbf-vertical-grid">&#xe951;</i> <span class="i-name">vbf-vertical-grid</span><span class="i-code">0xe951</span>
+        </div>
+        <div class="span3" title="Code: 0xe952">
+          <i class="demo-icon vbf-grid">&#xe952;</i> <span class="i-name">vbf-grid</span><span class="i-code">0xe952</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe953">
+          <i class="demo-icon vbf-edit">&#xe953;</i> <span class="i-name">vbf-edit</span><span class="i-code">0xe953</span>
+        </div>
+        <div class="span3" title="Code: 0xe954">
+          <i class="demo-icon vbf-question-circle">&#xe954;</i> <span class="i-name">vbf-question-circle</span><span class="i-code">0xe954</span>
+        </div>
+        <div class="span3" title="Code: 0xe955">
+          <i class="demo-icon vbf-home-plus">&#xe955;</i> <span class="i-name">vbf-home-plus</span><span class="i-code">0xe955</span>
+        </div>
+        <div class="span3" title="Code: 0xe956">
+          <i class="demo-icon vbf-extra-person">&#xe956;</i> <span class="i-name">vbf-extra-person</span><span class="i-code">0xe956</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe958">
+          <i class="demo-icon vbf-square">&#xe958;</i> <span class="i-name">vbf-square</span><span class="i-code">0xe958</span>
+        </div>
+        <div class="span3" title="Code: 0xe959">
+          <i class="demo-icon vbf-download">&#xe959;</i> <span class="i-name">vbf-download</span><span class="i-code">0xe959</span>
+        </div>
+        <div class="span3" title="Code: 0xe95a">
+          <i class="demo-icon vbf-print">&#xe95a;</i> <span class="i-name">vbf-print</span><span class="i-code">0xe95a</span>
+        </div>
+        <div class="span3" title="Code: 0xe95d">
+          <i class="demo-icon vbf-send-arrow">&#xe95d;</i> <span class="i-name">vbf-send-arrow</span><span class="i-code">0xe95d</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe95e">
+          <i class="demo-icon vbf-reply">&#xe95e;</i> <span class="i-name">vbf-reply</span><span class="i-code">0xe95e</span>
+        </div>
+        <div class="span3" title="Code: 0xe961">
+          <i class="demo-icon vbf-web">&#xe961;</i> <span class="i-name">vbf-web</span><span class="i-code">0xe961</span>
+        </div>
+        <div class="span3" title="Code: 0xe962">
+          <i class="demo-icon vbf-no-check">&#xe962;</i> <span class="i-name">vbf-no-check</span><span class="i-code">0xe962</span>
+        </div>
+        <div class="span3" title="Code: 0xe964">
+          <i class="demo-icon vbf-fullscreen">&#xe964;</i> <span class="i-name">vbf-fullscreen</span><span class="i-code">0xe964</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe965">
+          <i class="demo-icon vbf-sofa-bed">&#xe965;</i> <span class="i-name">vbf-sofa-bed</span><span class="i-code">0xe965</span>
+        </div>
+        <div class="span3" title="Code: 0xe966">
+          <i class="demo-icon vbf-bed-king-double">&#xe966;</i> <span class="i-name">vbf-bed-king-double</span><span class="i-code">0xe966</span>
+        </div>
+        <div class="span3" title="Code: 0xe967">
+          <i class="demo-icon vbf-bed-double">&#xe967;</i> <span class="i-name">vbf-bed-double</span><span class="i-code">0xe967</span>
+        </div>
+        <div class="span3" title="Code: 0xe968">
+          <i class="demo-icon vbf-bed">&#xe968;</i> <span class="i-name">vbf-bed</span><span class="i-code">0xe968</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe969">
+          <i class="demo-icon vbf-futon">&#xe969;</i> <span class="i-name">vbf-futon</span><span class="i-code">0xe969</span>
+        </div>
+        <div class="span3" title="Code: 0xe96a">
+          <i class="demo-icon vbf-cot">&#xe96a;</i> <span class="i-name">vbf-cot</span><span class="i-code">0xe96a</span>
+        </div>
+        <div class="span3" title="Code: 0xe96b">
+          <i class="demo-icon vbf-bed-king">&#xe96b;</i> <span class="i-name">vbf-bed-king</span><span class="i-code">0xe96b</span>
+        </div>
+        <div class="span3" title="Code: 0xe96c">
+          <i class="demo-icon vbf-bed-bunk">&#xe96c;</i> <span class="i-name">vbf-bed-bunk</span><span class="i-code">0xe96c</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe96d">
+          <i class="demo-icon vbf-sofa">&#xe96d;</i> <span class="i-name">vbf-sofa</span><span class="i-code">0xe96d</span>
+        </div>
+        <div class="span3" title="Code: 0xe96f">
+          <i class="demo-icon vbf-review">&#xe96f;</i> <span class="i-name">vbf-review</span><span class="i-code">0xe96f</span>
+        </div>
+        <div class="span3" title="Code: 0xe970">
+          <i class="demo-icon vbf-search">&#xe970;</i> <span class="i-name">vbf-search</span><span class="i-code">0xe970</span>
+        </div>
+        <div class="span3" title="Code: 0xe971">
+          <i class="demo-icon vbf-rubbish">&#xe971;</i> <span class="i-name">vbf-rubbish</span><span class="i-code">0xe971</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe972">
+          <i class="demo-icon vbf-photo">&#xe972;</i> <span class="i-name">vbf-photo</span><span class="i-code">0xe972</span>
+        </div>
+        <div class="span3" title="Code: 0xe973">
+          <i class="demo-icon vbf-copy">&#xe973;</i> <span class="i-name">vbf-copy</span><span class="i-code">0xe973</span>
+        </div>
+        <div class="span3" title="Code: 0xe974">
+          <i class="demo-icon vbf-pets">&#xe974;</i> <span class="i-name">vbf-pets</span><span class="i-code">0xe974</span>
+        </div>
+        <div class="span3" title="Code: 0xe975">
+          <i class="demo-icon vbf-lines">&#xe975;</i> <span class="i-name">vbf-lines</span><span class="i-code">0xe975</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe976">
+          <i class="demo-icon vbf-calendar">&#xe976;</i> <span class="i-name">vbf-calendar</span><span class="i-code">0xe976</span>
+        </div>
+        <div class="span3" title="Code: 0xe978">
+          <i class="demo-icon vbf-bathroom">&#xe978;</i> <span class="i-name">vbf-bathroom</span><span class="i-code">0xe978</span>
+        </div>
+        <div class="span3" title="Code: 0xe979">
+          <i class="demo-icon vbf-info">&#xe979;</i> <span class="i-name">vbf-info</span><span class="i-code">0xe979</span>
+        </div>
+        <div class="span3" title="Code: 0xe97a">
+          <i class="demo-icon vbf-360">&#xe97a;</i> <span class="i-name">vbf-360</span><span class="i-code">0xe97a</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe97b">
+          <i class="demo-icon vbf-person">&#xe97b;</i> <span class="i-name">vbf-person</span><span class="i-code">0xe97b</span>
+        </div>
+        <div class="span3" title="Code: 0xe97c">
+          <i class="demo-icon vbf-person-extra">&#xe97c;</i> <span class="i-name">vbf-person-extra</span><span class="i-code">0xe97c</span>
+        </div>
+        <div class="span3" title="Code: 0xe97d">
+          <i class="demo-icon vbf-more">&#xe97d;</i> <span class="i-name">vbf-more</span><span class="i-code">0xe97d</span>
+        </div>
+        <div class="span3" title="Code: 0xe97e">
+          <i class="demo-icon vbf-cart">&#xe97e;</i> <span class="i-name">vbf-cart</span><span class="i-code">0xe97e</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe97f">
+          <i class="demo-icon vbf-logout">&#xe97f;</i> <span class="i-name">vbf-logout</span><span class="i-code">0xe97f</span>
+        </div>
+        <div class="span3" title="Code: 0xe980">
+          <i class="demo-icon vbf-web-object">&#xe980;</i> <span class="i-name">vbf-web-object</span><span class="i-code">0xe980</span>
+        </div>
+        <div class="span3" title="Code: 0xe981">
+          <i class="demo-icon vbf-lock">&#xe981;</i> <span class="i-name">vbf-lock</span><span class="i-code">0xe981</span>
+        </div>
+        <div class="span3" title="Code: 0xe982">
+          <i class="demo-icon vbf-set">&#xe982;</i> <span class="i-name">vbf-set</span><span class="i-code">0xe982</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe983">
+          <i class="demo-icon vbf-vk">&#xe983;</i> <span class="i-name">vbf-vk</span><span class="i-code">0xe983</span>
+        </div>
+        <div class="span3" title="Code: 0xe984">
+          <i class="demo-icon vbf-okru">&#xe984;</i> <span class="i-name">vbf-okru</span><span class="i-code">0xe984</span>
+        </div>
+        <div class="span3" title="Code: 0xe985">
+          <i class="demo-icon vbf-dzen">&#xe985;</i> <span class="i-name">vbf-dzen</span><span class="i-code">0xe985</span>
+        </div>
+        <div class="span3" title="Code: 0xe986">
+          <i class="demo-icon vbf-tg">&#xe986;</i> <span class="i-name">vbf-tg</span><span class="i-code">0xe986</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe987">
+          <i class="demo-icon vbf-more-1">&#xe987;</i> <span class="i-name">vbf-more-1</span><span class="i-code">0xe987</span>
+        </div>
+        <div class="span3" title="Code: 0xe988">
+          <i class="demo-icon vbf-walking">&#xe988;</i> <span class="i-name">vbf-walking</span><span class="i-code">0xe988</span>
+        </div>
+        <div class="span3" title="Code: 0xe989">
+          <i class="demo-icon vbf-fav-2">&#xe989;</i> <span class="i-name">vbf-fav-2</span><span class="i-code">0xe989</span>
+        </div>
+        <div class="span3" title="Code: 0xe98a">
+          <i class="demo-icon vbf-360-2">&#xe98a;</i> <span class="i-name">vbf-360-2</span><span class="i-code">0xe98a</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe98b">
+          <i class="demo-icon vbf-qandans">&#xe98b;</i> <span class="i-name">vbf-qandans</span><span class="i-code">0xe98b</span>
+        </div>
+        <div class="span3" title="Code: 0xe98c">
+          <i class="demo-icon vbf-360-person">&#xe98c;</i> <span class="i-name">vbf-360-person</span><span class="i-code">0xe98c</span>
+        </div>
+      </div>
+    </div>
+    <div class="container footer">Generated by <a href="https://fontello.com">fontello.com</a></div>
+  </body>
+</html>

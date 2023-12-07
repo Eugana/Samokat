@@ -1,0 +1,156 @@
+.enterModal__list::-webkit-scrollbar {
+  display: none;
+}
+
+.enterModal__container::after {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  right: 0;
+  background: #000;
+  opacity: .8;
+}
+
+.enterModal__list {
+  position: fixed;
+  z-index: 1000;
+  top: 32px;
+  bottom: 0;
+  right: 32px;
+  height: 855px;
+  background: #fff;
+  width: 500px;
+  border-radius: 32px;
+}
+
+.enterModal__item:first-child {
+  height: 80%;
+  position: relative;
+}
+
+.enterModal__item:last-child {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.enter__btn__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+  width: 100%;
+}
+
+
+.enter__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 7px 6px;
+  background: #f2f2f2e6;
+  color: #000;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.enter__phone__btn {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  width: 295px;
+  height: 56px;
+  background: #f2f2f2e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #404040;
+  border-radius: 56px;
+}
+
+.enter__id__btn {
+  width: 295px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 56px;
+  background: #21a038;
+  color: #fff;
+  font-weight: 600;
+}
+
+.enter__text__container {
+  margin-top: 10px;
+  width: 295px;
+  padding: 16px;
+  padding-left: 25px;
+  border-radius: 16px;
+  box-shadow: 0px 0px 23px 0px rgba(34, 60, 80, 0.2);
+  position: relative;
+}
+
+.enter__text__icon {
+  position: absolute;
+  left: 50%;
+  top: -13px;
+  transform: translateX(-50%);
+  height: 10px;
+  color: #fff;
+}
+
+
+.enter__text__title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  color: #404040;
+  padding-bottom: 5px;
+}
+
+.enter__text {
+  font-size: 13px;
+  color: #a6a6a6;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.enter__item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 403px;
+}
+
+.enter__item__input {
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.enter__item__link {
+  color: #595959;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.enter__item__link:hover {
+  border-radius: 4px;
+  background: #e0e0e0;
+  cursor: pointer;
+}
+
+.enter__item__text {
+  color: #a6a6a6;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
