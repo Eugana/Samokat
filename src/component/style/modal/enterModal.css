@@ -1,4 +1,4 @@
-.enterModal__list::-webkit-scrollbar {
+.enterModal__container::-webkit-scrollbar {
   display: none;
 }
 
@@ -25,6 +25,18 @@
   background: #fff;
   width: 500px;
   border-radius: 32px;
+  animation: eye .5s;
+}
+
+@keyframes eye {
+  0% {
+    right: -1000px;
+  }
+
+  100% {
+    right: 32px;
+    ;
+  }
 }
 
 .enterModal__item:first-child {
@@ -53,6 +65,7 @@
 
 .enter__close {
   position: absolute;
+  display: block;
   top: 20px;
   right: 20px;
   padding: 7px 6px;
@@ -60,6 +73,7 @@
   color: #000;
   border-radius: 50%;
   cursor: pointer;
+
 }
 
 .enter__phone__btn {

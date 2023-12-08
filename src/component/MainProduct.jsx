@@ -15,7 +15,6 @@ import EnterModal from './modal/EnterModal'
 function MainProduct() {
   return (
     <div className='mainProduct'>
-      <EnterModal />
       <MainSidebar />
       <div className='mainProduct__container' >
         <div className="mainProduct__input__list">
