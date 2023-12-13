@@ -168,6 +168,12 @@
 
 .mainProduct__shelf__item {
   max-width: 190px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.mainProduct__shelf__item:active {
+  transform: scale(0.95);
 }
 
 .shelf__lastChild {
@@ -303,7 +309,7 @@
   height: 1px;
   background: #404040;
   position: absolute;
-  top: 45%;
+  top: 50%;
   transform: translateY(-50%);
 
 }
@@ -316,6 +322,7 @@
   margin-left: 5px;
   color: #ff335f;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .mainProduct__Categories__container {

@@ -55,3 +55,128 @@
   opacity: .6;
   border-radius: 56px;
 }
+
+.basket {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 20px 0;
+  text-align: center;
+  white-space: pre-wrap;
+  -webkit-user-select: none;
+  user-select: none;
+  overflow-y: scroll;
+  padding-bottom: 76px;
+}
+
+.basket::-webkit-scrollbar {
+  display: none;
+}
+
+.basket__item {
+  display: flex;
+  gap: 5px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.basket__item img {
+  display: block;
+  width: 83px;
+  height: 83px;
+}
+
+.basket__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.basket__besc {
+  position: relative;
+  display: -webkit-box;
+  padding-right: 56px;
+  width: 290px;
+  overflow: hidden;
+  color: #404040;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 15px;
+  text-align: start;
+}
+
+.basket__no {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.basket__last__cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.basket__cont__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 76px;
+  height: 30px;
+  padding: 7px 8px;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: #f2f2f2;
+  border-radius: 36px;
+}
+
+.basket__price__cont {
+  display: flex;
+  gap: 3px;
+}
+
+.empy__text {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #a6a6a6;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.basket__btn__container {
+  position: relative;
+  text-align: center;
+  box-shadow: 0px -79px 79px 17px rgba(255, 255, 255, 1);
+}
+
+.basket__result__conteoner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  margin-bottom: 16px;
+  pointer-events: auto;
+}
+
+.result__text {
+  color: #a6a6a6;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.result__price {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #404040;
+}
