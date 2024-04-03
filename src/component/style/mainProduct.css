@@ -20,17 +20,6 @@
   position: sticky;
   z-index: 1;
   top: 0;
-}
-
-.mainProduct__input__list::after {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 51px;
-  z-index: -1;
   background: #eee;
 }
 
@@ -71,7 +60,7 @@
 }
 
 .mainProduct__content {
-  padding: 0 24px;
+  padding: 0 24px 15px;
   background: #fff;
 }
 
@@ -330,6 +319,10 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 40px;
+}
+
+.mainProduct__Categories__container:last-child{
+  margin-bottom: 0;
 }
 
 .mainProduct__Categories__container img {

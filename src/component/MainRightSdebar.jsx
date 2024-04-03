@@ -6,6 +6,7 @@ import Basket from './Basket'
 function MainRightSdebar({ orders, onDelete, onShowItem, item }) {
   let summa = 0
   orders.forEach(el => summa += Number.parseFloat(el.nowPrice))
+  console.dir(Basket)
   return (
     <div className='rightsidebar'>
       <div className='rightsidebar__container'>
@@ -32,7 +33,7 @@ function MainRightSdebar({ orders, onDelete, onShowItem, item }) {
               <div className="result__text">Итог</div>
               <div className="result__price">{new Intl.NumberFormat().format(summa)} ₽</div>
             </div>
-            <div className="basket__btn">Продолжить</div>
+            <div className="basket__btn" style={{ opacity: `${orders.length !== 0 ? "1" : ".6"}` }}>Продолжить</div>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ export class Basket extends Component {
           <div className='basket__last__cont'>
             <div className="basket__cont__btn">
               <i className='basket__num__icon vbf-minus-big'></i>
-              <div className="basket__num">1</div>
+              <div className="basket__num">`</div>
               <i className='basket__num__icon vbf-plus-big'></i>
             </div>
             <div className="basket__price__cont">

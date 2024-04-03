@@ -1,13 +1,13 @@
-import React from 'react'
-import './style/mainLogo.css'
+import React from "react";
+import "./style/mainLogo.css";
 
-import imglogo from './photo/Logo/logo.svg'
+import imglogo from "./photo/Logo/logo.svg";
 function MainLogo() {
   return (
-    <a href='/' className='logo__container'>
+    <a href="/" className="logo__container vbf-ok">
       <img src={imglogo} alt="" />
     </a>
-  )
+  );
 }
 
-export default MainLogo
+export default MainLogo;
