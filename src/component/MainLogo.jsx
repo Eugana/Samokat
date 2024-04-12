@@ -6,6 +6,7 @@ function MainLogo() {
   return (
     <a href="/" className="logo__container vbf-ok">
       <img src={imglogo} alt="" />
+      awdaw
     </a>
   );
 }
